@@ -1,7 +1,7 @@
 import pathlib
 
 from flask import Flask
-from flask_babelex import Babel
+from flask_babel import Babel
 from flask_bootstrap import Bootstrap
 
 from kerko import blueprint as kerko_blueprint
