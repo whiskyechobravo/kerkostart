@@ -2,7 +2,7 @@
 
 This is the code from the _Getting started_ section of [Kerko]'s README file.
 
-Have a look at [KerkoApp] for a slightly more complete application example.
+For a more complete application example, have a look at [KerkoApp].
 
 [Kerko]: https://github.com/whiskyechobravo/kerko
 [KerkoApp]: https://github.com/whiskyechobravo/kerkoapp
