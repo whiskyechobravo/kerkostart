@@ -1,10 +1,10 @@
 import pathlib
 
+import kerko
 from environs import Env
 from flask import Flask
 from flask_babel import Babel
 from flask_bootstrap import Bootstrap4
-from kerko import blueprint as kerko_blueprint
 from kerko.composer import Composer
 
 env = Env()
@@ -21,4 +21,4 @@ app.config['KERKO_COMPOSER'] = Composer()
 babel = Babel(app)
 bootstrap = Bootstrap4(app)
 
-app.register_blueprint(kerko_blueprint, url_prefix='/bibliography')
+app.register_blueprint(kerko.blueprint, url_prefix='/bibliography')
