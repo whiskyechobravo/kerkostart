@@ -3,16 +3,23 @@ from flask import Flask
 from flask_babel import Babel
 from flask_bootstrap import Bootstrap4
 from kerko.composer import Composer
-from kerko.config_helpers import config_set, config_update, validate_config
+from kerko.config_helpers import config_set, config_update, parse_config
 
 app = Flask(__name__)
-app.config.from_prefixed_env(prefix='MYAPP')
+
+# Initialize app configuration with Kerko's defaults.
 config_update(app.config, kerko.DEFAULTS)
+
+# Update app configuration from environment variables.
+app.config.from_prefixed_env(prefix='MYAPP')
 
 # Make changes to the Kerko configuration here, if desired.
 config_set(app.config, 'kerko.meta.title', 'My App')
 
-validate_config(app.config)
+# Validate configuration and save its parsed version.
+parse_config(app.config)
+
+# Initialize the Composer object.
 app.config['kerko_composer'] = Composer(app.config)
 
 babel = Babel(app)
