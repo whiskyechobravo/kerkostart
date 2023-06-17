@@ -22,6 +22,8 @@ parse_config(app.config)
 # Initialize the Composer object.
 app.config['kerko_composer'] = Composer(app.config)
 
+# Make changes to the Kerko composer object here, if desired.
+
 babel = Babel(app)
 bootstrap = Bootstrap4(app)
 
