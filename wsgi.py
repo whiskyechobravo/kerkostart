@@ -4,6 +4,7 @@ from flask_babel import Babel
 from flask_bootstrap import Bootstrap4
 from kerko.composer import Composer
 from kerko.config_helpers import config_set, config_update, parse_config
+from kerko.hooks import PluginManager
 
 app = Flask(__name__)
 
@@ -22,9 +23,11 @@ parse_config(app.config)
 # Initialize the Composer object.
 app.config["kerko_composer"] = Composer(app.config)
 
-# Make changes to the Kerko composer object here, if desired.
+# Make changes to the Kerko composer here, if desired.
 
+# Initialize extensions.
 babel = Babel(app)
 bootstrap = Bootstrap4(app)
+plugin_manager = PluginManager(app)
 
 app.register_blueprint(kerko.make_blueprint(), url_prefix="/bibliography")
